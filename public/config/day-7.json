@@ -1,0 +1,26 @@
+{
+  "sections": [
+    {
+      "target": "quick",
+      "title": "Quick Access",
+      "grid": "grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6",
+      "links": [
+        {"label": "Gmail", "url": "https://mail.google.com", "icon": "mail", "extra": "bg-blue-50 dark:bg-blue-900/50"},
+        {"label": "Yahoo", "url": "https://mail.yahoo.com", "icon": "mail", "extra": "bg-purple-50 dark:bg-purple-900/50"},
+        {"label": "LinkedIn", "url": "https://linkedin.com", "icon": "linkedin", "extra": "bg-sky-50 dark:bg-sky-900/50"},
+        {"label": "DK", "url": "https://sportsbook.draftkings.com", "icon": "dice-5", "extra": "bg-orange-50 dark:bg-orange-900/40"}
+      ]
+    },
+    {
+      "target": "social",
+      "title": "Social Media",
+      "grid": "grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5",
+      "links": [
+        {"label": "Twitter/X", "url": "https://x.com/home", "icon": "twitter", "extra": "bg-gradient-to-r from-slate-900 to-slate-700 text-white"},
+        {"label": "Instagram", "url": "https://instagram.com", "icon": "camera", "extra": "bg-gradient-to-r from-pink-500 to-purple-600 text-white"},
+        {"label": "Reddit", "url": "https://reddit.com", "icon": "message-circle", "extra": "bg-gradient-to-r from-amber-500 to-red-500 text-white"},
+        {"label": "YouTube", "url": "https://youtube.com", "icon": "youtube", "extra": "bg-gradient-to-r from-red-600 to-red-700 text-white"}
+      ]
+    }
+  ]
+}

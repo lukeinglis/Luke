@@ -1,0 +1,17 @@
+{
+  "sections": [
+    {"target":"quick","title":"Quick Access","grid":"grid gap-4 grid-cols-2","links":[]},
+    {"target":"social","title":"Social Media","grid":"grid gap-4 grid-cols-2","links":[]},
+    {"target":"prio1","title":"Priority Block 1","links":[]},
+    {"target":"prio2","title":"Priority Block 2","links":[]},
+    {"target":"prio3","title":"Priority Block 3","links":[]},
+    {"target":"prio4","title":"Priority Block 4","links":[]},
+    {"target":"idx1","title":"Index 1","links":[]},
+    {"target":"idx2","title":"Index 2","links":[]},
+    {"target":"idx3","title":"Index 3","links":[]},
+    {"target":"idx4","title":"Index 4","links":[]},
+    {"target":"finance","title":"Finance / Stocks","links":[]},
+    {"target":"credit","title":"Credit / Bank","links":[]},
+    {"target":"media","title":"Media","links":[]}
+  ]
+}
