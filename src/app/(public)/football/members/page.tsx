@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import members from "@/data/football-members.json";
+import { getMembers } from "@/lib/football-data";
 
 export const metadata: Metadata = { title: "Members | Greybushes and Chili Dogs" };
 
-export default function MembersPage() {
+export default async function MembersPage() {
+  const members = await getMembers();
   return (
     <div className="min-h-screen bg-[#0d1b2a] text-gray-100">
       <header className="border-b border-[#1b3a5c] bg-[#0f2237]">

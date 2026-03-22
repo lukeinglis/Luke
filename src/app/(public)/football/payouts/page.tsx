@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import payouts from "@/data/football-payouts.json";
+import { getPayouts } from "@/lib/football-data";
 
 export const metadata: Metadata = { title: "Payouts | Greybushes and Chili Dogs" };
 
-export default function PayoutsPage() {
+export default async function PayoutsPage() {
+  const payouts = await getPayouts();
   return (
     <div className="min-h-screen bg-[#0d1b2a] text-gray-100">
       <header className="border-b border-[#1b3a5c] bg-[#0f2237]">
