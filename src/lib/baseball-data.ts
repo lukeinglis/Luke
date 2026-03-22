@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-
 export interface OwnerSeason {
   year: number;
   owner: string;
@@ -22,11 +19,11 @@ export interface OwnerSummary {
   years: number[];
 }
 
-export function getOwnerSeasons(): OwnerSeason[] {
-  const csvPath = path.join(process.cwd(), "src/data/baseball-owners.csv");
-  const csv = fs.readFileSync(csvPath, "utf-8");
-  const lines = csv.trim().split("\n").slice(1); // skip header
+const OWNERS_CSV_URL =
+  "https://raw.githubusercontent.com/lukeinglis/FantasyBaseball/main/owners/owners.csv";
 
+function parseCsv(csv: string): OwnerSeason[] {
+  const lines = csv.trim().split("\n").slice(1);
   return lines.map((line) => {
     const [year, owner, teamName, standing, wins, losses, ties] = line.split(",");
     return {
@@ -41,8 +38,14 @@ export function getOwnerSeasons(): OwnerSeason[] {
   });
 }
 
-export function getOwnerSummaries(): OwnerSummary[] {
-  const seasons = getOwnerSeasons();
+export async function getOwnerSeasons(): Promise<OwnerSeason[]> {
+  const res = await fetch(OWNERS_CSV_URL, { next: { revalidate: 3600 } });
+  const csv = await res.text();
+  return parseCsv(csv);
+}
+
+export async function getOwnerSummaries(): Promise<OwnerSummary[]> {
+  const seasons = await getOwnerSeasons();
   const byOwner = new Map<string, OwnerSeason[]>();
 
   for (const s of seasons) {
@@ -68,8 +71,9 @@ export function getOwnerSummaries(): OwnerSummary[] {
   return summaries.sort((a, b) => b.championships - a.championships || a.bestFinish - b.bestFinish);
 }
 
-export function getChampions(): { year: number; owner: string; teamName: string }[] {
-  return getOwnerSeasons()
+export async function getChampions(): Promise<{ year: number; owner: string; teamName: string }[]> {
+  const seasons = await getOwnerSeasons();
+  return seasons
     .filter((s) => s.standing === 1)
     .sort((a, b) => a.year - b.year);
 }

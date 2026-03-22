@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   description: "10-team H2H category league on ESPN. Est. 2015.",
 };
 
-export default function BaseballPage() {
-  const champions = getChampions();
+export default async function BaseballPage() {
+  const champions = await getChampions();
 
   return (
     <div className="min-h-screen bg-zinc-950 text-gray-100">

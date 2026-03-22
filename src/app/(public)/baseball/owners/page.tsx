@@ -4,8 +4,8 @@ import { getOwnerSummaries } from "@/lib/baseball-data";
 
 export const metadata: Metadata = { title: "Owners | Tampa's Finest" };
 
-export default function OwnersPage() {
-  const owners = getOwnerSummaries();
+export default async function OwnersPage() {
+  const owners = await getOwnerSummaries();
 
   return (
     <div className="min-h-screen bg-zinc-950 text-gray-100">

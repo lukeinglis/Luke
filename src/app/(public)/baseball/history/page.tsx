@@ -4,8 +4,8 @@ import { getOwnerSeasons } from "@/lib/baseball-data";
 
 export const metadata: Metadata = { title: "History | Tampa's Finest" };
 
-export default function HistoryPage() {
-  const allSeasons = getOwnerSeasons();
+export default async function HistoryPage() {
+  const allSeasons = await getOwnerSeasons();
   const years = [...new Set(allSeasons.map((s) => s.year))].sort((a, b) => b - a);
 
   return (
